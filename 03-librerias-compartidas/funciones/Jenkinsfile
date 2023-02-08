@@ -3,6 +3,13 @@ pipeline {
     agent any
 
     stages {
+        stage('docker remove') {
+            steps {
+                script {
+                    dockerLib.remove(DockerImage: "edo2004/homer_page:1.0.0-${BUILD_ID-1}")
+                }
+            }
+        }
         stage('docker build') {
             steps {
                 script {
