@@ -6,7 +6,7 @@ pipeline {
         stage('docker remove') {
             steps {
                 script {
-                    REMOVE = BUILD_ID
+                    REMOVE = BUILD_ID-1;
                     dockerLib.remove(DockerImage: "edo2004/homer_page:1.0.0-${REMOVE}")
                 }
             }
