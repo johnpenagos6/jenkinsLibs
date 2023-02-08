@@ -6,8 +6,8 @@ pipeline {
         stage('docker build') {
             steps {
                 script {
-                    dockerLib.build(DockerfilePath: "02-primer-pipeline/Dockerfile",
-                                    DockerImage: "edo2004/homer_page:1.0.0-${BUILD_ID}",
+                    dockerLib.build(DockerImage: "edo2004/homer_page:1.0.0-${BUILD_ID}",
+                                    DockerfilePath: "02-primer-pipeline/Dockerfile",
                                     DockerContext: "02-primer-pipeline")
                 }
             }
