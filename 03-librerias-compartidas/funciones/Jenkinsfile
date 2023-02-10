@@ -6,7 +6,7 @@ pipeline {
         stage('docker build') {
             steps {
                 script {
-                    dockerLib.build(DockerImage: "edo2004/homer_page:1.0.0-${BUILD_ID}",
+                    dockerLib.build(DockerImage: "johnpenagos6/home_page:1.0.0-${BUILD_ID}",
                                     DockerfilePath: "02-primer-pipeline/Dockerfile",
                                     DockerContext: "02-primer-pipeline")
                 }
@@ -15,14 +15,14 @@ pipeline {
         stage('docker push') {
             steps {
                 script {
-                    dockerLib.push(DockerImage: "edo2004/homer_page:1.0.0-${BUILD_ID}")
+                    dockerLib.push(DockerImage: "johnpenagos6/home_page:1.0.0-${BUILD_ID}")
                 }
             }
         }
         stage('docker remove') {
             steps {
                 script {
-                    dockerLib.remove(DockerImage: "edo2004/homer_page:1.0.0-${BUILD_ID}")
+                    dockerLib.remove(DockerImage: "johnpenagos6/home_page:1.0.0-${BUILD_ID}")
                 }
             }
         }
